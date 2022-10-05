@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Layout from './components/Layout';
+import Listas from './components/Listas';
+import Registros from './components/Registros';
+import AppContext from './context/AppContext';
+import useApi from './hooks/useApi';
 
 function App() {
+  const initialState = useApi();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={initialState}>
+      <div className="App">
+        <Layout>
+          <Listas/>
+          <Registros/>      
+        </Layout>
+      </div>
+    </AppContext.Provider>
   );
 }
 

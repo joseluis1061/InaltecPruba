@@ -1,0 +1,12 @@
+:root{
+  --background--black:#283039;
+}
+
+.Layout{
+  background-color: var(--background--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25;
+  pad: 25px;
+}
